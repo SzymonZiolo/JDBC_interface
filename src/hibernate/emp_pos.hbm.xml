@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.company.Objects.Emp_pos" table="emp_pos">
+        <id name="id">
+            <generator class="identity"></generator>
+        </id>
+        <property name="name"></property>
+        <set name="employee" table="employees" inverse="true" lazy="true" fetch="join">
+            <key>
+                <column name="position" not-null="true" />
+            </key>
+            <one-to-many class="com.company.Objects.Employee" />
+        </set>
+    </class>
+</hibernate-mapping>
